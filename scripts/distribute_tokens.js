@@ -2,7 +2,8 @@ const NFT = artifacts.require("./NFT");
 const Token = artifacts.require("./Token");
 
 module.exports = async function (callback) {
-    const [deployer, acc1, acc2, acc3] = await web3.eth.getAccounts()
+    const [deployer, ] = await web3.eth.getAccounts()
+    // const [deployer ] = await process.env.DEPLOYER
 
     const nft = await NFT.deployed()
     const token = await Token.deployed()
@@ -27,14 +28,14 @@ module.exports = async function (callback) {
 
     console.log(`Deployer distributes tokens to others...\n`)
 
-    await token.transfer(acc1, 250, { from: deployer })
-    await token.transfer(acc2, 250, { from: deployer })
-    await token.transfer(acc3, 250, { from: deployer })
+    //await token.transfer(acc1, 250, { from: deployer })
+    //await token.transfer(acc2, 250, { from: deployer })
+    //await token.transfer(acc3, 250, { from: deployer })
 
     console.log(`deployer token balance after distributing | ${await token.balanceOf(deployer)}`)
-    console.log(`acc1 token balance after distributing     | ${await token.balanceOf(acc1)}`)
-    console.log(`acc2 token balance after distributing     | ${await token.balanceOf(acc2)}`)
-    console.log(`acc3 token balance after distributing     | ${await token.balanceOf(acc3)}\n`)
+    //console.log(`acc1 token balance after distributing     | ${await token.balanceOf(acc1)}`)
+    //console.log(`acc2 token balance after distributing     | ${await token.balanceOf(acc2)}`)
+    //console.log(`acc3 token balance after distributing     | ${await token.balanceOf(acc3)}\n`)
 
     callback()
 }

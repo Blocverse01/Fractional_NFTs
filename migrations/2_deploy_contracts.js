@@ -8,8 +8,8 @@ module.exports = async function (deployer) {
 
     await deployer.deploy(
         NFT,
-        "Bloc Paintings",
-        "FP",
+        "Mintero EKO Tower 1",
+        "MET1",
         IPFS_IMAGE_METADATA_URI,
     )
 
@@ -19,9 +19,9 @@ module.exports = async function (deployer) {
 
     await deployer.deploy(
         Token,
-        "Bloc Paintings Token",
-        "BlocP",
+        "Mintero EKO Tower Token",
+        "MET1T",
         nft.address,
-        10000
+        "10000000000000000000000"
     )
 };
